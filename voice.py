@@ -1,68 +1,82 @@
 import speech_recognition as sr
 import webbrowser
+import pyttsx3
+import time
 
 recognizer = sr.Recognizer()
 
 MICROPHONE_INDEX = 1
 
-print("Voice Assistant started!")
-print("Say something...")
+
+def speak(text):
+    print("Assistant:", text)
+
+    engine = pyttsx3.init()
+    engine.setProperty("rate", 150)
+    engine.say(text)
+    engine.runAndWait()
+    engine.stop()
+
+    time.sleep(0.5)
+
+
+speak("Hello Sami. I am ready.")
 
 while True:
     try:
         with sr.Microphone(device_index=MICROPHONE_INDEX) as source:
             print("Listening...")
             recognizer.adjust_for_ambient_noise(source, duration=0.5)
-            audio = recognizer.listen(source)
+            audio = recognizer.listen(source, timeout=10, phrase_time_limit=7)
 
-        command = recognizer.recognize_google(audio)
-        command = command.lower()
+        print("Processing...")
+
+        command = recognizer.recognize_google(audio).lower()
 
         print("You said:", command)
 
         if "hello" in command:
-            print("Hello Sami!")
+            speak("Hello Sami!")
 
         elif "open youtube" in command:
+            speak("YouTube opening.")
             webbrowser.open("https://www.youtube.com")
 
         elif "open my github" in command:
-            webbrowser.open(
-                "https://github.com/mdnajamuddinsami32-maker"
-            )
+            speak("Opening your GitHub.")
+            webbrowser.open("https://github.com/mdnajamuddinsami32-maker")
 
-        elif "open my facebook account" in command:
-            webbrowser.open("https://www.facebook.com")
-
-        elif "open my instagram account" in command:
-            webbrowser.open(
-                "https://www.instagram.com/?__pwa=1"
-            )
+        elif "open google" in command:
+            speak("Google opening.")
+            webbrowser.open("https://www.google.com")
 
         elif "open my university website" in command:
+            speak("Opening your university website.")
             webbrowser.open("https://metrouni.edu.bd/")
 
         elif "open my portfolio" in command:
+            speak("Opening your portfolio.")
             webbrowser.open(
                 "https://mdnajamuddinsami32-maker.github.io/Portfolio-website/"
             )
 
-        elif "open google" in command:
-            webbrowser.open("https://www.google.com")
-
         elif "stop" in command or "exit" in command:
-            print("Assistant stopped.")
+            speak("Goodbye Sami.")
             break
 
         else:
-            print("I don't understand that command.")
+            speak("Sorry, I don't understand that command.")
+
+    except sr.WaitTimeoutError:
+        print("No voice detected.")
 
     except sr.UnknownValueError:
-        print("Sorry, I couldn't understand.")
+        print("Could not understand.")
+        speak("Sorry, I couldn't understand.")
 
     except sr.RequestError as e:
-        print("Google Speech Recognition error:", e)
+        print("Speech recognition error:", e)
+        speak("There is a problem with speech recognition.")
 
     except Exception as e:
         print("Error:", e)
-        
