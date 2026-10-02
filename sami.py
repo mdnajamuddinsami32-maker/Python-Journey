@@ -24,6 +24,26 @@ while True:
         elif "open youtube" in command:
             webbrowser.open("https://www.youtube.com")
 
+        elif "open my github" in command:
+            webbrowser.open("https://github.com/mdnajamuddinsami32-maker")
+
+        elif "open my facebook account" in command:
+            webbrowser.open("https://www.facebook.com")
+
+        elif "open my instagram account" in command:
+            webbrowser.open("https://www.instagram.com/?__pwa=1")
+
+        elif "open my university website" in command:
+            webbrowser.open("https://metrouni.edu.bd/")
+
+        elif "open my portfolio" in command:
+            webbrowser.open("https://mdnajamuddinsami32-maker.github.io/Portfolio-website/")
+
+
+
+
+
+
         elif "open google" in command:
             webbrowser.open("https://www.google.com")
 
