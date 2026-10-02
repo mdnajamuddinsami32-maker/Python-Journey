@@ -57,5 +57,8 @@ while True:
     except sr.UnknownValueError:
         print("Sorry, I couldn't understand.")
 
-    except sr.RequestError:
-        print("Internet connection problem.")
+    except sr.RequestError as e:
+        print("Google Speech Recognition error:", e)
+
+    except Exception as e:
+        print("Error:", e)
