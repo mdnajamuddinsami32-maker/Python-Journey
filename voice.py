@@ -88,3 +88,8 @@ while True:
 
     except Exception as e:
         print("Error:", e)
+
+
+
+
+        # pyinstaller --clean --onefile --console voice.py   . ei command diye exe file banano jabe/ update kora hoy. jate new changes reflect hoy.
