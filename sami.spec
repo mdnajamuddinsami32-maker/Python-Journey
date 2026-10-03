@@ -2,7 +2,7 @@
 
 
 a = Analysis(
-    ['sami.py'],
+    ['voice.py'],
     pathex=[],
     binaries=[],
     datas=[],

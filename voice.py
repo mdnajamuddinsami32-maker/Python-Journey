@@ -20,7 +20,7 @@ def speak(text):
     time.sleep(0.5)
 
 
-speak("Hello Sami. I am ready.")
+speak("Hello Sami. I am ready. Please give me a command.")
 
 while True:
     try:
@@ -53,6 +53,14 @@ while True:
         elif "open my university website" in command:
             speak("Opening your university website.")
             webbrowser.open("https://metrouni.edu.bd/")
+
+        elif "open my facebook account" in command:
+            speak("Opening your Facebook account.")
+            webbrowser.open("https://www.facebook.com/")
+            
+        elif "open my instagram account" in command:
+            speak("Opening your Instagram account.")
+            webbrowser.open("https://www.instagram.com/")
 
         elif "open my portfolio" in command:
             speak("Opening your portfolio.")
