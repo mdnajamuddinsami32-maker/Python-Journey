@@ -36,7 +36,7 @@ while True:
         print("You said:", command)
 
         if "hello" in command:
-            speak("Hello Sami!")
+            speak("Hello Sami! I am hearing you. How can I assist you today?")
 
         elif "open youtube" in command:
             speak("YouTube opening.")
