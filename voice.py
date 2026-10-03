@@ -38,6 +38,23 @@ while True:
         if "hello" in command:
             speak("Hello Sami! I am hearing you. How can I assist you today?")
 
+if "How are you" in command:
+            speak("I am doing well, thank you for asking. And you?")
+
+if "I am fine" in command:
+            speak("That's great to hear! Do you need any help?")
+
+
+
+
+
+
+
+
+
+
+
+
         elif "open youtube" in command:
             speak("YouTube opening.")
             webbrowser.open("https://www.youtube.com")
