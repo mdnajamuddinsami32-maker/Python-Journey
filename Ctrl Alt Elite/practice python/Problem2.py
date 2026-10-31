@@ -1,8 +1,11 @@
+# Install an voice engine library called pyttsx3 using pip. 
+# You can do this by running the following command in your terminal or command prompt:
+
+
 import pyttsx3
 engine = pyttsx3.init()
-
-# For Mac, If you face error related to "pyobjc" when running the `init()` method :
-# Install 9.0.1 version of pyobjc : "pip install pyobjc>=9.0.1"
-
-engine.say("I will speak this text")
+engine.say("Assalamu Alaikum! Sami, How are you?")
 engine.runAndWait()
+
+
+# pip install pyttsx3 , ei module diye voice engine use kora jay.
